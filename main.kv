@@ -1,0 +1,51 @@
+MDBoxLayout:
+    orientation: "vertical"
+
+    MDTabs:
+        id: tabs
+        #tab_bar_height: "55dp"
+        background_color: "8d87ff"
+        text_color_active: "0b093d"
+        #adaptive_size: True
+        tab_hint_x: True
+        #font_name: "Zlusa font" настройка шрифта, его наверное надо загрузить в файл
+
+        Tab:
+            id: tab1
+            title: "Ручками"
+            MDBoxLayout:
+                padding: "10dp"
+                pos_hint: {"center_x": .5,"center_y": 1.25}
+                MDTextField:
+                    id: code_prodict
+                    mode: "rectangle"
+                    hint_text: "Наберите штрих-код"
+                    max_text_length: 13
+                MDIconButton:
+                    icon: "check"
+                    on_release:
+                        app.treatment_data(code_prodict.text)
+            MDBoxLayout:
+                MDLabel:
+                    id: label_state
+                    text: " "
+                    halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: "11ff00"
+                    font_style: "H3"
+
+
+        Tab:
+            title: "Камерой"
+            MDBoxLayout:
+                MDLabel:
+                    text: "Типа тут камера"
+                    halign: "center"
+
+
+
+                MDIconButton:
+                    icon: "animation"
+                    on_release:
+                        app.print_anime()
+
